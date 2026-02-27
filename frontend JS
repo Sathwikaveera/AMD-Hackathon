@@ -1,0 +1,9 @@
+function getHint() {
+  document.getElementById("output").innerText =
+    "Hint: Recall the core concept.";
+}
+
+function getPlan() {
+  document.getElementById("output").innerText =
+    "Study Plan: Day 1, Day 3, Day 7, Day 14";
+}
