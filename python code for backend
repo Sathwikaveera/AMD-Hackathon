@@ -1,0 +1,32 @@
+from datetime import datetime, timedelta
+
+mastery_db = {}
+rubric = {"content": 5, "structure": 3, "originality": 2}
+
+def get_hint(question_id, step):
+    hints = {
+        1: [
+            "Recall the core concept.",
+            "Apply the formula step by step.",
+            "Check your final calculation."
+        ]
+    }
+    return hints.get(question_id, ["Try solving stepwise"])[step]
+
+def update_mastery(student, topic, correct):
+    key = (student, topic)
+    mastery_db[key] = mastery_db.get(key, 0) + (10 if correct else -2)
+    return {"student": student, "topic": topic, "mastery": mastery_db[key]}
+
+def evaluate_rubric(submission):
+    score = 0
+    feedback = {}
+    for k, w in rubric.items():
+        s = submission.get(k, 0)
+        score += s * w
+        feedback[k] = f"{s}/{w}"
+    return {"total_score": score, "feedback": feedback}
+
+def study_plan():
+    today = datetime.today()
+    return [(today + timedelta(days=i)).strftime("%Y-%m-%d") for i in [1,3,7,14]]
