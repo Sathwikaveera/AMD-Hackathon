@@ -1,0 +1,20 @@
+from fastapi import FastAPI
+from ai_logic import get_hint, update_mastery, evaluate_rubric, study_plan
+
+app = FastAPI(title="AI Education & Skilling Platform")
+
+@app.get("/hint/")
+def hint(question_id: int, step: int):
+    return {"hint": get_hint(question_id, step)}
+
+@app.post("/mastery/")
+def mastery(student: str, topic: str, correct: bool):
+    return update_mastery(student, topic, correct)
+
+@app.post("/evaluate/")
+def evaluate(submission: dict):
+    return evaluate_rubric(submission)
+
+@app.get("/study-plan/")
+def planner():
+    return {"plan": study_plan()}
