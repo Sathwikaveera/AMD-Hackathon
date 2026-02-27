@@ -1,0 +1,30 @@
+# AI in Education & Skilling
+
+An AI-powered platform for personalized, explainable, and multilingual learning.
+
+## Features
+- Stepwise AI concept coaching
+- Rubric-aware evaluation
+- Smart study planner (spaced repetition)
+- Mastery tracking
+- Academic integrity support
+
+## Tech Stack
+- Python, FastAPI
+- HTML, JavaScript
+- REST APIs
+
+## Run Backend
+```bash
+uvicorn backend.main:app --reload
+
+---
+
+## 🔹 8️⃣ How to Push to GitHub
+```bash
+git init
+git add .
+git commit -m "AI Education & Skilling Hackathon Project"
+git branch -M main
+git remote add origin https://github.com/your-username/ai-education-skilling.git
+git push -u origin main
